@@ -3,8 +3,13 @@ class RecipesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
+	  @recipes = Recipe.all
+	  if params[:search]
+	    @recipe = Recipe.search(params[:search]).order("created_at DESC")
+	  else
 		@recipe = Recipe.all.order("created_at DESC")
-	end
+	  end
+     end 
 
 	def show
 	end

@@ -15,4 +15,8 @@ class Recipe < ActiveRecord::Base
     
     has_attached_file :image, styles: { :medium => "400x400#" }
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+    
+    def self.search(search)
+      where("title ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%") 
+    end
 end
