@@ -47,7 +47,7 @@ body {
 	margin-bottom: 50px;
 	@include box-shadow;
 	border: none;
-	.navbar-brand {
+	.navbar-brand { 
 		text-transform: uppercase;
 		letter-spacing: -1px;
 		font-weight: bold;
@@ -58,6 +58,7 @@ body {
 	}
 }
 
+
 .recipe {
 	background: white;
 	border-radius: 5px;
@@ -67,16 +68,6 @@ body {
 		max-width: 100%;
 		border-radius: 5px 5px 0 0;
 		overflow: hidden;
-	}
-	img {
-		width: 100%;
-		-webkit-transition: all .3s ease-out;
-	  -moz-transition: all .3s ease-out;
-	  -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-		&:hover {
-			transform: scale(1.075);
-		}
 	}
 	h2 {
 		padding: 15px 5%;
@@ -100,12 +91,6 @@ body {
 	min-height: 360px;
 	border-radius: 5px;
 	padding: 2em 8%;
-}
-
-.recipe_image {
-	max-width: 100%;
-	border-radius: 5px;
-	@include box-shadow;
 }
 
 #recipe_info {

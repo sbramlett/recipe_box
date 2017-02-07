@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 	  else
 		@recipe = Recipe.all.order("created_at DESC")
 	  end
-     end 
+    end 
 
 	def show
 	end
