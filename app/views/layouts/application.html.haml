@@ -1,34 +1,34 @@
 !!! 5
 %html
-%head
-	%title Recipe App
-	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-	= javascript_include_tag 'application', 'data-turbolinks-track' => true
-	= csrf_meta_tags
+  %head
+    %title Recipe App
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
 
-%body
-	%nav.navbar.navbar-default
-		.container
-			= link_to "Recipe Box", root_path, class: "navbar-brand"
-			%ul.nav.navbar-nav.navbar-right
-				- if user_signed_in?
-					%li= link_to "New Recipe", new_recipe_path
-					%li= link_to "Account", edit_user_registration_path
-					%li= link_to "Sign Out", destroy_user_session_path, method: :delete
-					%li
-					= form_tag(recipes_path, :method => "get", id: "search-form") do
-						= text_field_tag :search, params[:search], placeholder: "Search Recipes"
-						= submit_tag "Search", :name => nil
-				- else
-					%li= link_to "Sign Up", new_user_registration_path
-					%li= link_to "Sign In", new_user_session_path
-					%li
-					= form_tag(recipes_path, :method => "get", id: "search-form") do
-						= text_field_tag :search, params[:search], placeholder: "Search Recipes"
-						= submit_tag "Search", :name => nil
+  %body
+    %nav.navbar.navbar-default
+      .container
+        = link_to "Recipe Box", root_path, class: "navbar-brand"
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li= link_to "New Recipe", new_recipe_path
+            %li= link_to "Account", edit_user_registration_path
+            %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+            %li
+              = form_tag(recipes_path, :method => "get", id: "search-form") do
+                = text_field_tag :search, params[:search], placeholder: "Search Recipes"
+                = submit_tag "Search", :name => nil
+          - else
+            %li= link_to "Sign Up", new_user_registration_path
+            %li= link_to "Sign In", new_user_session_path
+            %li
+              = form_tag(recipes_path, :method => "get", id: "search-form") do
+                = text_field_tag :search, params[:search], placeholder: "Search Recipes"
+                = submit_tag "Search", :name => nil
 
-	.container
-		- flash.each do |name, msg|
-			= content_tag :div, msg, class: "alert"
-		= yield
+    .container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert"
+      = yield
 		
